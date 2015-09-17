@@ -7,17 +7,25 @@ echo bloginfo('name') ?>
 		
 			<header id="header">
 				<a href="#" class="image avatar"><img src="<?php echo  get_template_directory_uri() . '/images/avatar.jpg' ?>" alt="" /></a>
-				<h1><strong>I am Strata</strong>, a super simple<br />
-				responsive site template freebie<br />
-				crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+				<h1>
+					<strong>Mauro Alexandrowitsch</strong>
+					<br />
 
-				<?php echo get_custom('texto_sobre_mim') ?>
+					<?php echo get_custom('texto_sobre_mim') ?>
+
+				</h1>
+
+				
 			</header>
 		
 		<!-- Main -->
 			<div id="main">
 
+			
+
 				<!-- One -->
+
+					<!-- retirando temporariamente 
 					<section id="one">
 						<header class="major">
 							<h2>
@@ -32,69 +40,70 @@ echo bloginfo('name') ?>
 							<li><a href="#" class="button">Learn More</a></li>
 						</ul>
 					</section>
+				-->
 
 				<!-- Two -->
 					<section id="two">
-						<h2>Recent Work</h2>
+						
+						<h2> Últimos Trabalhos </h2>
+
 						<div class="row">
-							<article class="6u 12u$(xsmall) work-item">
-								<a href="<?php echo  get_template_directory_uri() . 'images/fulls/01.jpg'?> " class="image fit thumb">
-									<img src="<?php echo  get_template_directory_uri() . '/images/thumbs/01.jpg' ?> " alt="" /></a>
-								<h3>Magna sed consequat tempus</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
-								<a href="images/fulls/02.jpg" class="image fit thumb"><img src="<?php echo  get_template_directory_uri() . '/images/thumbs/02.jpg' ?>" alt="" /></a>
-								<h3>Ultricies lacinia interdum</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u 12u$(xsmall) work-item">
-								<a href="images/fulls/03.jpg" class="image fit thumb">
-									<img src="<?php echo  get_template_directory_uri() . '/images/thumbs/03.jpg' ?>" alt="" /></a>
-								<h3>Tortor metus commodo</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
-								<a href="images/fulls/04.jpg" class="image fit thumb">
-									<img src="<?php echo  get_template_directory_uri() . '/images/thumbs/04.jpg' ?>" alt="" /></a>
-								<h3>Quam neque phasellus</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u 12u$(xsmall) work-item">
-								<a href="images/fulls/05.jpg" class="image fit thumb">
-									<img src="<?php echo  get_template_directory_uri() . '/images/thumbs/05.jpg'?>" alt="" /></a>
-								<h3>Nunc enim commodo aliquet</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
-							<article class="6u$ 12u$(xsmall) work-item">
-								<a href="images/fulls/06.jpg" class="image fit thumb">
-									<img src="<?php echo  get_template_directory_uri() . '/images/thumbs/06.jpg'?> " alt="" /></a>
-								<h3>Risus ornare lacinia</h3>
-								<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
-							</article>
+
+							<?php 
+								$args = array( 'post_type' => 'portfolio', 'posts_per_page' => 10 );
+								$the_query = new WP_Query( $args ); 
+
+								if ( $the_query->have_posts() ) { 
+									while ( $the_query->have_posts() ){
+										 $the_query->the_post(); 
+										 include('partials/_portifolio.php');
+									?>
+
+									<?php } wp_reset_postdata(); 
+								}else{  ?>
+									<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+							<?php } ?>
+							
+
 						</div>
+						
 						<ul class="actions">
-							<li><a href="#" class="button">Full Portfolio</a></li>
+							<li><a href="#" class="button">Ver Portfolio</a></li>
 						</ul>
+
 					</section>
 
 				<!-- Three -->
 					<section id="three">
-						<h2>Get In Touch</h2>
-						<p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+						<h2> Entre em contato </h2>
+						<p>
+							 <?php echo get_custom('get_in_touch_text') ?>
+							 
+						</p>
 						<div class="row">
-							<div class="8u 12u$(small)">
+							<div class="12u 12u$(small)">
+								
 								<form method="post" action="#">
 									<div class="row uniform 50%">
-										<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
-										<div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-										<div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+										<div class="6u 12u$(xsmall)">
+											<input type="text" name="name" id="name" placeholder="Name" />
+										</div>
+										<div class="6u$ 12u$(xsmall)">
+											<input type="email" name="email" id="email" placeholder="Email" />
+										</div>
+										<div class="12u$">
+											<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
+										</div>
 									</div>
 								</form>
+
 								<ul class="actions">
 									<li><input type="submit" value="Send Message" /></li>
 								</ul>
 							</div>
+
+							
+							<!--
 							<div class="4u$ 12u$(small)">
 								<ul class="labeled-icons">
 									<li>
@@ -109,10 +118,11 @@ echo bloginfo('name') ?>
 									</li>
 									<li>
 										<h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
-										<a href="#">hello@untitled.tld</a>
+										<a href="#"> <?php echo get_custom('email_link') ?>  </a>
 									</li>
 								</ul>
 							</div>
+							-->
 						</div>
 					</section>
 

@@ -10,6 +10,8 @@ echo bloginfo('name') ?>
 				<h1><strong>I am Strata</strong>, a super simple<br />
 				responsive site template freebie<br />
 				crafted by <a href="http://html5up.net">HTML5 UP</a>.</h1>
+
+				<?php echo get_custom('texto_sobre_mim') ?>
 			</header>
 		
 		<!-- Main -->
@@ -116,6 +118,8 @@ echo bloginfo('name') ?>
 
 				<!-- Four -->
 				
+
+				<!--
 					<section id="four">
 						<h2>Elements</h2>
 
@@ -414,7 +418,8 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 							<h5>Fit</h5>
 							<div class="box alt">
 								<div class="row 50% uniform">
-									<div class="12u$"><span class="image fit"><img src="images/fulls/05.jpg" alt="" /></span></div>
+									<div class="12u$"><span class="image fit">
+										<img src="images/fulls/05.jpg" alt="" /></span></div>
 									<div class="4u"><span class="image fit"><img src="images/thumbs/01.jpg" alt="" /></span></div>
 									<div class="4u"><span class="image fit"><img src="images/thumbs/02.jpg" alt="" /></span></div>
 									<div class="4u$"><span class="image fit"><img src="images/thumbs/03.jpg" alt="" /></span></div>
@@ -432,7 +437,7 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 						</section>
 
 					</section>
-				
+-->				
 
 			</div>
 <?php get_footer() ?>

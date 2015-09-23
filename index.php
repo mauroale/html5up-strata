@@ -1,26 +1,8 @@
-<?php get_header() ;
-echo bloginfo('name') ?>
+<?php 
 
-<body id="top">
-
-		<!-- Header -->
-		
-			<header id="header">
-				<a href="#" class="image avatar"><img src="<?php echo  get_template_directory_uri() . '/images/avatar.jpg' ?>" alt="" /></a>
-				<h1>
-					<strong>Mauro Alexandrowitsch</strong>
-					<br />
-
-					<?php echo get_custom('texto_sobre_mim') ?>
-
-				</h1>
-
-				
-			</header>
-		
-		<!-- Main -->
-			<div id="main">
-
+	get_header() ;
+	get_sidebar();
+?>
 			
 
 				<!-- One -->
@@ -68,7 +50,7 @@ echo bloginfo('name') ?>
 						</div>
 						
 						<ul class="actions">
-							<li><a href="#" class="button">Ver Portfolio</a></li>
+							<li><a href=" <?php echo home_url('portfolio') ?>" class="button">Ver Portfolio</a></li>
 						</ul>
 
 					</section>

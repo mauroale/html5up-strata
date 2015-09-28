@@ -65,7 +65,16 @@
 						<div class="row">
 							<div class="12u 12u$(small)">
 								
-								<form method="post" action="#">
+								<?php if($_GET['e'] == 1)
+									  {
+									  	echo 'Email enviado com sucesso';
+
+									  }else{
+									   	echo 'Email não enviado';
+									  }
+								?>
+
+								<form method="post" action="<?php echo get_template_directory_uri() .  '/sendmail.php' ?>">
 									<div class="row uniform 50%">
 										<div class="6u 12u$(xsmall)">
 											<input type="text" name="name" id="name" placeholder="Name" />
@@ -77,11 +86,13 @@
 											<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
 										</div>
 									</div>
+
+									<ul class="actions">
+										<li><input type="submit" value="Send Message" /></li>
+									</ul>
 								</form>
 
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
+								
 							</div>
 
 							

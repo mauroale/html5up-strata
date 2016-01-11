@@ -13,7 +13,11 @@
 		<?php 	the_post_thumbnail(array(348,204)); ?>
 		
 	</a>
-<h3> <a href="<?php  echo get_post_meta( get_the_ID() , 'link' , true); ?>" target="_blank"> <?php the_title() ?> </a> </h3>	
+	<h3> 
+		<a href="<?php  echo get_post_meta( get_the_ID() , 'link' , true); ?>" target="_blank"> 
+			<?php the_title() ?> 
+		</a> 
+	</h3>
 	<div class="work-item-text">
 			
 		<p><?php the_content()  ;   ?></p>

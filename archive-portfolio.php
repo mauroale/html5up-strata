@@ -11,35 +11,25 @@
 <div id="primary" class="site-content">
 <div id="content" role="main">
 
+	<div class="row">
 
-<?php
-	$args = array(
-		'posts_per_page' => 100,
-		'post_type' => 'portfolio'
-	);
-	
-	$portfolio = query_posts($args);
-	
+		<?php 
+			$args = array( 'post_type' => 'portfolio', 'posts_per_page' => 100 );
+			$the_query = new WP_Query( $args ); 
 
-	if ( $portfolio ) : while ( $portfolio ) : the_post();
-	//while ( have_posts() ) : the_post(); 
-?>
+			if ( $the_query->have_posts() ) { 
+				while ( $the_query->have_posts() ){
+					 $the_query->the_post(); 
+					 include('partials/_portifolio.php');
+				} wp_reset_postdata(); 
 
-	<?php include('partials/_portifolio.php'); ?>
+			}else{  ?>
+				<p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+		<?php } ?>
+		
 
-<!--				
-<h1 class="entry-title"><?php the_title(); ?></h1>
+	</div>
 
-<div class="entry-content">
-
-	<?php the_content(); ?>
-
-
-</div>
-<!-- .entry-content -->
-
-	<?php endwhile; // end of the loop. ?>
-<?php endif; // end of the loop. ?>
 
 </div><!-- #content -->
 </div><!-- #primary -->

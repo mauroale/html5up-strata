@@ -56,6 +56,8 @@
 					</section>
 
 				<!-- Three -->
+
+<!--
 					<section id="three">
 						<h2> Entre em contato </h2>
 						<p>
@@ -95,7 +97,11 @@
 								
 							</div>
 
-							
+
+-->
+
+
+						
 							<!--
 							<div class="4u$ 12u$(small)">
 								<ul class="labeled-icons">
